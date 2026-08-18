@@ -1,6 +1,8 @@
+![Oriane's search interface](assets/oriane-app.png)
+
 # Oriane System
 
-An AI system built to make [Oriane](https://app.oriane.xyz/) intuitive from the first session. Oriane is an AI video intelligence platform with twelve search filters and a CSV export: powerful, but a new user doesn't know which filters to set or what to do with the data once they have it. This system collapses that learning curve into a guided workflow. Answer four questions in any AI chat, get your exact filter recipe, run the search, and turn the export into a branded, data-backed viral video playbook. Built to help Oriane close prospects and to help clients turn their video data into sales.
+An AI system built in April 2026 to make [Oriane](https://app.oriane.xyz/) intuitive from the first session. Oriane is an AI video intelligence platform with twelve search filters and a CSV export: powerful, but a new user doesn't know which filters to set or what to do with the data once they have it. This system collapses that learning curve into a guided workflow. Answer four questions in any AI chat, get your exact filter recipe, run the search, and turn the export into a branded, data-backed viral video playbook. Built to help Oriane close prospects and to help clients turn their video data into sales.
 
 **Open the live pages:**
 
@@ -29,7 +31,25 @@ Three prompts, pasted into one AI chat (Claude, ChatGPT, Gemini, or Copilot) in 
 
 3. **Director's brief.** The user attaches the CSV. The AI cleans the data, separates videos where the brand is the actual subject from videos that mention it in passing, runs eight analyses (formats, hooks, product placement timing, language, platform split, duration, creator tiers, posting time), then writes complete video guides: word-for-word filmable scripts with camera, lighting, editing, caption, and hashtag direction, each anchored to a specific number from the data. Output is a single branded HTML file styled in the client brand's own visual identity.
 
-A sidebar library covers the six other things people come to Oriane for: trend detection, competitor share of voice, creator discovery, brand safety audits, campaign measurement, and pitch-ready data cards.
+## The specialist library
+
+The 3-prompt pipeline handles one goal: creating winning video content. The sidebar carries seven more standalone prompts, one per Oriane use case, and Prompt 1's router sends users to the right one automatically. Each is a full analyst brief that takes an Oriane CSV and returns its own branded, self-contained HTML report:
+
+- **Detect Trends & Insights.** Category-level market intelligence: topic clusters ranked by volume and engagement, rising vs. declining themes, format and duration analysis, emerging brands, cultural moments.
+- **Spy on Competitors.** Share of voice across every brand in the export, engagement efficiency quadrants, creator overlap, content whitespace, and month-over-month momentum.
+- **Find Creators.** Ranks and tiers creators for partnership: top reach, hidden gems (small accounts with above-median engagement), organic advocates posting without #ad, and risk flags.
+- **Ensure Brand Safety.** An A-to-F safety score with sentiment distribution, profanity scan, negative competitive comparisons, and the ten highest-risk videos by reach.
+- **Find with Transcripts.** Earned media intelligence built on full audio transcripts, including shadow reach: videos where the brand is spoken out loud but never typed, invisible to every text-only listening tool.
+- **Measure a Campaign.** Before vs. during comparison, the organic halo around paid activity, seeded creator activation rates, and earned media value.
+- **Pitch with Data.** A single 16:9 screenshot-ready data card built around the one most compelling stat, for dropping straight into a sales deck.
+
+Every prompt in the library shares the same noise discipline: classify brand mentions as primary or incidental before any math runs, so a passing mention never skews a conclusion.
+
+## Where it fit in the business
+
+This system was Oriane's client onboarding path. New users didn't study filter documentation; they pasted Prompt 1 and had their first branded report the same day. It ran with marketing teams at Fortune Global 500 subsidiaries including Louis Vuitton, Estée Lauder, and Publicis, and it did double duty on the sales side: a prospect's own data, turned into a playbook, was the pitch.
+
+The agency case mattered most. When the client was a marketing agency, the agency used the same workflow to onboard its own brand clients faster, which made Oriane part of how the agency won and kept accounts. Category intel this specific is hard to get anywhere else, and that showed up in retention and expansion.
 
 ## The example output
 

@@ -47,7 +47,7 @@ Every prompt in the library shares the same noise discipline: classify brand men
 
 ## Where it fit in the business
 
-This system was Oriane's client onboarding path. New users didn't study filter documentation; they pasted Prompt 1 and had their first branded report the same day. It ran with marketing teams at Fortune Global 500 subsidiaries including Louis Vuitton, Estée Lauder, and Publicis, and it did double duty on the sales side: a prospect's own data, turned into a playbook, was the pitch.
+The system came before Oriane had any onboarding infrastructure at all. When it was built, the company had just raised $2M and launched: no onboarding flow, no enablement docs, no repeatable way to take a new account from login to first insight. This became that path, and it carried Oriane's early explosion into the market. New users didn't study filter documentation; they pasted Prompt 1 and had their first branded report the same day. It ran with marketing teams at Fortune Global 500 subsidiaries including Louis Vuitton, Estée Lauder, and Publicis, and it did double duty on the sales side: a prospect's own data, turned into a playbook, was the pitch.
 
 The agency case mattered most. When the client was a marketing agency, the agency used the same workflow to onboard its own brand clients faster, which made Oriane part of how the agency won and kept accounts. Category intel this specific is hard to get anywhere else, and that showed up in retention and expansion.
 

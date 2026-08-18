@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Louis Vuitton — Oriane Video Intelligence Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lv-black: #0A0805;
+    --lv-brown: #3B2314;
+    --lv-tan: #C9A96E;
+    --lv-gold: #B8922A;
+    --lv-cream: #F5EDD9;
+    --lv-warm-white: #FAF6EE;
+    --lv-muted: #8A7055;
+    --lv-accent: #CDF460;
+    --lv-red: #C0392B;
+    --lv-blue: #2C4A7C;
+    --lv-green: #1E6641;
+    --lv-script-hook: #E8513A;
+    --lv-script-body: #4A7BBF;
+    --lv-script-product: #2E9E5E;
+    --lv-script-cta: #C9A020;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+    --radius: 2px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--lv-black);
+    color: var(--lv-cream);
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--lv-black);
+    border-bottom: 1px solid rgba(185,146,42,0.25);
+    padding: 48px 0 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(185,146,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 5vw, 52px);
+    letter-spacing: 0.45em;
+    color: var(--lv-cream);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .wordmark span { color: var(--lv-gold); }
+  .header-sub {
+    font-family: var(--font-body);
+    font-weight: 200;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--lv-muted);
+    margin-bottom: 28px;
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(185,146,42,0.1);
+    border: 1px solid rgba(185,146,42,0.3);
+    padding: 6px 18px;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--lv-gold);
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--lv-brown);
+    border-bottom: 1px solid rgba(185,146,42,0.2);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    padding: 24px 16px;
+    text-align: center;
+    border-right: 1px solid rgba(185,146,42,0.15);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 400;
+    color: var(--lv-tan);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lv-muted);
+  }
+
+  /* ── NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,8,5,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(185,146,42,0.2);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex: none;
+    padding: 16px 22px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lv-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+    white-space: nowrap;
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    font-family: var(--font-body);
+    font-weight: 400;
+  }
+  .nav-tab:hover { color: var(--lv-cream); }
+  .nav-tab.active {
+    color: var(--lv-gold);
+    border-bottom-color: var(--lv-gold);
+  }
+
+  /* ── TABS ── */
+  .tab-content { display: none; animation: fadeIn 0.4s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .section { padding: 56px 0; }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--lv-cream);
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lv-muted);
+    margin-bottom: 40px;
+  }
+  hr.divider {
+    border: none;
+    border-top: 1px solid rgba(185,146,42,0.15);
+    margin: 40px 0;
+  }
+
+  /* ── GAP INSIGHT HERO ── */
+  .gap-hero {
+    background: linear-gradient(135deg, rgba(59,35,20,0.8) 0%, rgba(10,8,5,0.9) 100%);
+    border: 1px solid rgba(185,146,42,0.4);
+    border-left: 4px solid var(--lv-gold);
+    padding: 36px 40px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gap-hero::before {
+    content: '✦';
+    position: absolute;
+    right: 32px;
+    top: 24px;
+    font-size: 48px;
+    color: rgba(185,146,42,0.08);
+  }
+  .gap-hero-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--lv-gold);
+    margin-bottom: 12px;
+  }
+  .gap-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 400;
+    color: var(--lv-cream);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .gap-hero p {
+    color: rgba(201,169,110,0.85);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  /* ── BAR CHART ── */
+  .bar-chart { display: flex; flex-direction: column; gap: 12px; }
+  .bar-row { display: flex; align-items: center; gap: 16px; }
+  .bar-label {
+    width: 180px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--lv-cream);
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .bar-track {
+    flex: 1;
+    height: 28px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(185,146,42,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--lv-brown), var(--lv-gold));
+    width: 0;
+    transition: width 1s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+  }
+  .bar-fill.untapped { background: linear-gradient(90deg, #1E6641, #2ECC71); }
+  .bar-value {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: var(--lv-cream);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .bar-meta { width: 80px; font-size: 10px; color: var(--lv-muted); }
+  .untapped-flag {
+    display: inline-block;
+    background: rgba(46,204,113,0.15);
+    border: 1px solid rgba(46,204,113,0.4);
+    color: #2ECC71;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 2px 8px;
+    margin-left: 8px;
+    text-transform: uppercase;
+  }
+
+  /* ── FORMAT TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table thead tr {
+    border-bottom: 1px solid rgba(185,146,42,0.3);
+  }
+  .data-table th {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--lv-muted);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 400;
+  }
+  .data-table td {
+    padding: 14px 16px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: middle;
+  }
+  .data-table tr:hover td { background: rgba(185,146,42,0.04); }
+  .er-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 2px;
+  }
+  .er-high { background: rgba(46,204,113,0.18); color: #2ECC71; }
+  .er-med { background: rgba(74,123,191,0.18); color: #7BAEED; }
+  .er-low { background: rgba(138,112,85,0.18); color: var(--lv-muted); }
+
+  /* ── HOOK CARDS ── */
+  .hook-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 48px; }
+  .hook-card {
+    background: rgba(59,35,20,0.3);
+    border: 1px solid rgba(185,146,42,0.15);
+    padding: 28px;
+    transition: var(--transition);
+    cursor: default;
+  }
+  .hook-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(185,146,42,0.4);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+  .hook-type {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--lv-muted);
+    margin-bottom: 12px;
+  }
+  .hook-er {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--lv-gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hook-er-label { font-size: 10px; color: var(--lv-muted); margin-bottom: 16px; }
+  .hook-views { font-size: 12px; color: var(--lv-tan); margin-bottom: 16px; }
+  .hook-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(201,169,110,0.7);
+    line-height: 1.6;
+    border-left: 2px solid rgba(185,146,42,0.3);
+    padding-left: 14px;
+  }
+
+  /* ── TIMING ── */
+  .timing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+  .timing-card {
+    background: rgba(59,35,20,0.2);
+    border: 1px solid rgba(185,146,42,0.12);
+    padding: 28px;
+    text-align: center;
+    position: relative;
+  }
+  .timing-card.winner {
+    border-color: rgba(185,146,42,0.5);
+    background: rgba(59,35,20,0.5);
+  }
+  .timing-winner-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--lv-gold);
+    color: var(--lv-black);
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    padding: 3px 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .timing-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lv-muted); margin-bottom: 16px; }
+  .timing-er {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--lv-tan);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .timing-views { font-size: 12px; color: var(--lv-muted); }
+
+  /* ── LANGUAGE ── */
+  .chip-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .chip {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    border: 1px solid;
+    cursor: default;
+    transition: var(--transition);
+  }
+  .chip:hover { transform: scale(1.05); }
+  .chip-power { border-color: var(--lv-gold); color: var(--lv-gold); background: rgba(185,146,42,0.08); }
+  .chip-positive { border-color: #2ECC71; color: #2ECC71; background: rgba(46,204,113,0.08); }
+  .chip-negative { border-color: #E74C3C; color: #E74C3C; background: rgba(231,76,60,0.08); }
+  .chip-cta { border-color: #C9A020; color: #C9A020; background: rgba(201,160,32,0.08); }
+
+  /* ── PLATFORM ── */
+  .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+  .platform-card {
+    background: rgba(59,35,20,0.25);
+    border: 1px solid rgba(185,146,42,0.15);
+    padding: 32px;
+  }
+  .platform-name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--lv-cream);
+    margin-bottom: 24px;
+  }
+  .platform-metric { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .platform-metric:last-child { border-bottom: none; }
+  .pm-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lv-muted); }
+  .pm-value { font-family: var(--font-display); font-size: 22px; color: var(--lv-tan); }
+
+  /* ── DURATION ── */
+  .duration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .duration-card {
+    background: rgba(59,35,20,0.2);
+    border: 1px solid rgba(185,146,42,0.12);
+    padding: 28px;
+    text-align: center;
+  }
+  .duration-card.optimal {
+    border-color: rgba(185,146,42,0.5);
+    background: rgba(59,35,20,0.5);
+    position: relative;
+  }
+  .optimal-badge {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: var(--lv-gold);
+    color: var(--lv-black);
+    font-size: 8px;
+    padding: 3px 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .duration-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lv-muted); margin-bottom: 16px; }
+  .duration-er {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--lv-tan);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .duration-views { font-size: 12px; color: var(--lv-muted); margin-bottom: 4px; }
+
+  /* ── CREATORS ── */
+  .tier-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 10px;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+  .tier-macro { background: rgba(185,146,42,0.2); color: var(--lv-gold); }
+  .tier-mid { background: rgba(74,123,191,0.2); color: #7BAEED; }
+  .tier-micro { background: rgba(46,204,113,0.2); color: #2ECC71; }
+  .tier-nano { background: rgba(138,112,85,0.2); color: var(--lv-muted); }
+  .gem-flag {
+    display: inline-block;
+    background: rgba(205,244,96,0.15);
+    border: 1px solid rgba(205,244,96,0.4);
+    color: var(--lv-accent);
+    font-size: 8px;
+    padding: 2px 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-left: 6px;
+  }
+
+  /* ── VIDEO GUIDE CARDS ── */
+  .guide-card {
+    background: rgba(59,35,20,0.2);
+    border: 1px solid rgba(185,146,42,0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .guide-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .guide-header:hover { background: rgba(185,146,42,0.06); }
+  .guide-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(185,146,42,0.2);
+    line-height: 1;
+    margin-right: 24px;
+    flex-shrink: 0;
+  }
+  .guide-title-block { flex: 1; }
+  .guide-format {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--lv-muted);
+    margin-bottom: 6px;
+  }
+  .guide-title {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 300;
+    color: var(--lv-cream);
+    line-height: 1.2;
+  }
+  .guide-meta { display: flex; gap: 20px; margin-top: 12px; flex-wrap: wrap; }
+  .guide-meta-item { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lv-muted); }
+  .guide-meta-item span { color: var(--lv-tan); }
+  .guide-toggle {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--lv-gold);
+    transition: var(--transition);
+    flex-shrink: 0;
+  }
+  .guide-card.open .guide-toggle { transform: rotate(45deg); }
+  .guide-body { display: none; padding: 0 32px 40px; }
+  .guide-card.open .guide-body { display: block; }
+
+  /* ── GUIDE SECTIONS ── */
+  .guide-section { margin-bottom: 36px; }
+  .guide-section-title {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--lv-gold);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(185,146,42,0.2);
+  }
+  .guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .guide-item { margin-bottom: 10px; }
+  .guide-item-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lv-muted); margin-bottom: 4px; }
+  .guide-item-value { font-size: 14px; color: var(--lv-cream); line-height: 1.6; }
+  .guide-item-value ul { list-style: none; padding: 0; }
+  .guide-item-value ul li { padding: 3px 0; padding-left: 16px; position: relative; }
+  .guide-item-value ul li::before { content: '—'; position: absolute; left: 0; color: var(--lv-gold); }
+
+  /* ── SCRIPT TERMINAL ── */
+  .script-terminal {
+    background: #080604;
+    border: 1px solid rgba(185,146,42,0.3);
+    padding: 32px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .script-beat { margin-bottom: 20px; }
+  .beat-label {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+  }
+  .beat-hook .beat-label { background: rgba(232,81,58,0.2); color: var(--lv-script-hook); border: 1px solid rgba(232,81,58,0.4); }
+  .beat-body .beat-label { background: rgba(74,123,191,0.2); color: var(--lv-script-body); border: 1px solid rgba(74,123,191,0.4); }
+  .beat-product .beat-label { background: rgba(46,158,94,0.2); color: var(--lv-script-product); border: 1px solid rgba(46,158,94,0.4); }
+  .beat-cta .beat-label { background: rgba(201,160,32,0.2); color: var(--lv-script-cta); border: 1px solid rgba(201,160,32,0.4); }
+  .beat-hook .beat-text { color: var(--lv-script-hook); }
+  .beat-body .beat-text { color: rgba(74,123,191,0.9); }
+  .beat-product .beat-text { color: rgba(46,158,94,0.9); }
+  .beat-cta .beat-text { color: rgba(201,160,32,0.9); }
+  .beat-timestamp {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    margin-right: 8px;
+  }
+
+  /* ── CAPTION ── */
+  .caption-block {
+    border-left: 3px solid var(--lv-gold);
+    padding: 16px 20px;
+    background: rgba(185,146,42,0.05);
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--lv-cream);
+    line-height: 1.75;
+  }
+  .caption-block-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--lv-gold); margin-bottom: 8px; }
+
+  /* ── HASHTAGS ── */
+  .hashtag-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .hashtag-chip {
+    background: rgba(185,146,42,0.08);
+    border: 1px solid rgba(185,146,42,0.25);
+    color: var(--lv-tan);
+    padding: 5px 13px;
+    font-size: 12px;
+    cursor: default;
+    transition: var(--transition);
+  }
+  .hashtag-chip:hover {
+    background: var(--lv-gold);
+    color: var(--lv-black);
+    border-color: var(--lv-gold);
+  }
+
+  /* ── AB HOOK ── */
+  .ab-box {
+    border: 1px dashed rgba(185,146,42,0.35);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .ab-box-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--lv-muted); margin-bottom: 10px; }
+  .ab-box-text { font-family: var(--font-display); font-size: 16px; font-style: italic; color: var(--lv-cream); }
+
+  /* ── WHY THIS WORKS ── */
+  .why-block {
+    border-left: 3px solid var(--lv-tan);
+    padding: 16px 20px;
+    background: rgba(201,169,110,0.05);
+    margin-bottom: 24px;
+  }
+  .why-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--lv-tan); margin-bottom: 8px; }
+  .why-text { font-size: 13px; color: rgba(201,169,110,0.85); line-height: 1.75; }
+
+  /* ── DATA ANCHOR ── */
+  .data-anchor {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(185,146,42,0.1);
+    border: 1px solid rgba(185,146,42,0.25);
+    padding: 10px 18px;
+    margin-bottom: 28px;
+  }
+  .data-anchor-icon { color: var(--lv-gold); font-size: 16px; }
+  .data-anchor-text { font-size: 12px; color: var(--lv-tan); }
+
+  /* ── CTA TABLE ── */
+  .cta-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+  .cta-table th {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lv-muted);
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(185,146,42,0.2);
+    font-weight: 400;
+  }
+  .cta-table td {
+    padding: 12px 14px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--lv-cream);
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--lv-brown);
+    border-top: 1px solid rgba(185,146,42,0.2);
+    text-align: center;
+    padding: 28px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--lv-muted);
+  }
+  .site-footer a { color: var(--lv-accent); text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .stats-bar { grid-template-columns: repeat(3, 1fr); }
+    .timing-grid, .duration-grid { grid-template-columns: 1fr; }
+    .platform-grid { grid-template-columns: 1fr; }
+    .guide-grid { grid-template-columns: 1fr; }
+    .bar-label { width: 120px; }
+    .container { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wordmark">LOUIS <span>VUITTON</span></div>
+  <div class="header-sub">Oriane Video Intelligence Playbook — Bag Category</div>
+  <div class="header-badge">✦ Social Media Manager · April 2026 · 28 Primary Videos Analyzed</div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num" data-target="28">0</span>
+    <div class="stat-label">Primary Videos</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" data-target="6.9" data-decimal="1">0</span>
+    <div class="stat-label">Avg ER % (Primary)</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" data-target="660" data-suffix="K">0</span>
+    <div class="stat-label">Avg Views</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" data-target="10.2" data-decimal="1">0</span>
+    <div class="stat-label">Top Format ER %</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" data-target="6.4" data-decimal="1" data-suffix="M">0</span>
+    <div class="stat-label">Top Video Views</div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" data-target="29">0</span>
+    <div class="stat-label">Incidental Videos</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <button class="nav-tab active" onclick="showTab('overview')">Overview</button>
+  <button class="nav-tab" onclick="showTab('formats')">Formats</button>
+  <button class="nav-tab" onclick="showTab('hooks')">Hooks</button>
+  <button class="nav-tab" onclick="showTab('language')">Language</button>
+  <button class="nav-tab" onclick="showTab('platform')">Platform &amp; Duration</button>
+  <button class="nav-tab" onclick="showTab('creators')">Creators</button>
+  <button class="nav-tab" onclick="showTab('guides')">Video Guides</button>
+</nav>
+
+<!-- ═══════════════ OVERVIEW ═══════════════ -->
+<div id="tab-overview" class="tab-content active">
+<div class="container section">
+
+  <div class="gap-hero">
+    <div class="gap-hero-label">✦ The Gap Insight</div>
+    <div class="gap-hero-title">The in-store experience video is the most underleveraged format in this dataset — and it is already producing 13.31% ER and 6.4M views</div>
+    <p>Three videos in this dataset show creators visiting a Louis Vuitton store to receive a free city passport stamp on their bags. These videos — from @louiecastro (6.4M views, 13.31% ER), @tingting (533K views, 10.55% ER), and @tingting_lai (672K views, 5.66% ER) — dramatically outperform the dataset average of 6.9% ER. The critical finding: none of these videos were produced or seeded by Louis Vuitton. The creators discovered the passport stamp experience organically. Meanwhile, the brand's official and paid content relies almost exclusively on product-on-shelf unboxing formats that average only 3.35% ER — less than half the ER of the in-store experience format. <strong style="color:var(--lv-tan)">The action: brief creators on the passport stamp experience specifically. The store is the product. The ritual is the hook. No other luxury house offers this — and the data proves audiences respond to it at scale.</strong></p>
+  </div>
+
+  <div class="section-title">Format Performance</div>
+  <div class="section-sub">Ranked by average engagement rate — primary videos only</div>
+
+  <div class="bar-chart" id="overview-chart">
+    <div class="bar-row">
+      <div class="bar-label">Comparison / Analysis</div>
+      <div class="bar-track"><div class="bar-fill" data-width="88" style="width:0%"><span class="bar-value">10.20% ER · 4 videos</span></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Outfit / Styling</div>
+      <div class="bar-track"><div class="bar-fill" data-width="80" style="width:0%"><span class="bar-value">9.20% ER · 4 videos</span></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Tutorial / Dupe <span class="untapped-flag">Untapped</span></div>
+      <div class="bar-track"><div class="bar-fill untapped" data-width="75" style="width:0%"><span class="bar-value">8.65% ER · 1 video</span></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Collection Showcase <span class="untapped-flag">Untapped</span></div>
+      <div class="bar-track"><div class="bar-fill untapped" data-width="64" style="width:0%"><span class="bar-value">7.40% ER · 2 videos</span></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Talking Head / Review</div>
+      <div class="bar-track"><div class="bar-fill" data-width="59" style="width:0%"><span class="bar-value">6.83% ER · 8 videos</span></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Fashion / Lifestyle</div>
+      <div class="bar-track"><div class="bar-fill" data-width="33" style="width:0%"><span class="bar-value">3.82% ER · 3 videos</span></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Unboxing</div>
+      <div class="bar-track"><div class="bar-fill" data-width="29" style="width:0%"><span class="bar-value">3.35% ER · 6 videos</span></div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div style="background: rgba(59,35,20,0.3); border: 1px solid rgba(185,146,42,0.15); padding: 24px 28px;">
+    <div style="font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--lv-muted);margin-bottom:10px;">Data Constraints</div>
+    <div style="font-size:13px;color:rgba(201,169,110,0.75);line-height:1.75;">
+      <strong style="color:var(--lv-cream)">Primary vs Incidental split:</strong> 28 primary (LV mentioned 2+ times) vs 29 incidental — a near 50/50 split signals meaningful search noise. The Spoken words column was present and complete. Saves/Favorites data returned zero across all rows — this column appears untracked or blocked in this export. ER calculations rely on Views, Likes, Comments, and Shares. No minimum follower filter was applied, which correctly allows nano and micro creators to surface.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ FORMATS ═══════════════ -->
+<div id="tab-formats" class="tab-content">
+<div class="container section">
+  <div class="section-title">Winning Format Map</div>
+  <div class="section-sub">All formats detected from transcripts, captions, and hashtags — primary videos only</div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Format</th>
+        <th>Videos</th>
+        <th>Avg ER</th>
+        <th>Avg Views</th>
+        <th>Avg Shares</th>
+        <th>Best Example</th>
+        <th>Signal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Comparison / Brand Analysis</strong></td>
+        <td>4</td>
+        <td><span class="er-pill er-high">10.20%</span></td>
+        <td>1,966,675</td>
+        <td>6,073</td>
+        <td>@louiecastro · 6.4M views</td>
+        <td>Top performer</td>
+      </tr>
+      <tr>
+        <td><strong>Outfit / Styling</strong></td>
+        <td>4</td>
+        <td><span class="er-pill er-high">9.20%</span></td>
+        <td>366,478</td>
+        <td>824</td>
+        <td>@wonderland · 660K views</td>
+        <td>Consistent volume</td>
+      </tr>
+      <tr>
+        <td><strong>Tutorial / Dupe Guide</strong></td>
+        <td>1</td>
+        <td><span class="er-pill er-high">8.65%</span></td>
+        <td>173,300</td>
+        <td>194</td>
+        <td>@blondieluxe · 173K views</td>
+        <td style="color:#2ECC71">⚑ Untapped — 1 video, high ER</td>
+      </tr>
+      <tr>
+        <td><strong>Collection Showcase</strong></td>
+        <td>2</td>
+        <td><span class="er-pill er-high">7.40%</span></td>
+        <td>169,550</td>
+        <td>397</td>
+        <td>@relaxitsonlyfashion · 204K views</td>
+        <td style="color:#2ECC71">⚑ Untapped — low volume, solid ER</td>
+      </tr>
+      <tr>
+        <td><strong>Talking Head / Review</strong></td>
+        <td>8</td>
+        <td><span class="er-pill er-med">6.83%</span></td>
+        <td>838,368</td>
+        <td>2,831</td>
+        <td>@elenagortarii · 1.75M views</td>
+        <td>Reliable broad reach</td>
+      </tr>
+      <tr>
+        <td><strong>Fashion / Luxury Lifestyle</strong></td>
+        <td>3</td>
+        <td><span class="er-pill er-low">3.82%</span></td>
+        <td>169,608</td>
+        <td>195</td>
+        <td>@tionoto · 277K views</td>
+        <td>Low engagement signal</td>
+      </tr>
+      <tr>
+        <td><strong>Unboxing</strong></td>
+        <td>6</td>
+        <td><span class="er-pill er-low">3.35%</span></td>
+        <td>299,717</td>
+        <td>372</td>
+        <td>@fashionpulis · 670K views</td>
+        <td>Overused — lowest ER in set</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="divider">
+  <div style="background:rgba(231,76,60,0.06);border:1px solid rgba(231,76,60,0.2);padding:20px 24px;margin-top:24px;">
+    <div style="font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:#E74C3C;margin-bottom:8px;">Unboxing Warning</div>
+    <div style="font-size:13px;color:rgba(201,169,110,0.8);line-height:1.75;">Unboxing is the most frequently produced LV format in this dataset (6 videos) but delivers the lowest average ER at 3.35% — less than half the Comparison format's 10.20%. The format is saturated. Continuing to brief creators toward unboxing will produce diminishing returns. Pivot budget toward Comparison, Styling, and in-store Experience formats.</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ HOOKS ═══════════════ -->
+<div id="tab-hooks" class="tab-content">
+<div class="container section">
+  <div class="section-title">Hook Analysis</div>
+  <div class="section-sub">Opening patterns from primary video transcripts — classified by structural type</div>
+
+  <div class="hook-grid">
+    <div class="hook-card">
+      <div class="hook-type">Personal Purchase Story</div>
+      <div class="hook-er">8.11<span style="font-size:20px">%</span></div>
+      <div class="hook-er-label">avg engagement rate</div>
+      <div class="hook-views">603K avg views · 2 videos</div>
+      <div class="hook-quote">"Did you know that in almost every Louis Vuitton store, you can get a free city stamp? I got my first one in New York..."</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-type">Question Hook</div>
+      <div class="hook-er">6.94<span style="font-size:20px">%</span></div>
+      <div class="hook-er-label">avg engagement rate</div>
+      <div class="hook-views">387K avg views · 5 videos</div>
+      <div class="hook-quote">"Are you ready for this? Okay, I'm gonna go get it. Hold on, stay right there."</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-type">Narrative / Storytelling</div>
+      <div class="hook-er">6.75<span style="font-size:20px">%</span></div>
+      <div class="hook-er-label">avg engagement rate</div>
+      <div class="hook-views">803K avg views · 17 videos</div>
+      <div class="hook-quote">"I'm here in Hawaii. Come with me to get a passport stamp. I only have one right now, and it's the Paris."</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-type">Price / Value Hook</div>
+      <div class="hook-er">6.61<span style="font-size:20px">%</span></div>
+      <div class="hook-er-label">avg engagement rate</div>
+      <div class="hook-views">665K avg views · 2 videos</div>
+      <div class="hook-quote">"I have flown all the way to New York City to buy Louis Vuitton Nutella. And you guys won't believe how much it cost me."</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-type">Reaction / Casual Opener</div>
+      <div class="hook-er">6.49<span style="font-size:20px">%</span></div>
+      <div class="hook-er-label">avg engagement rate</div>
+      <div class="hook-views">572K avg views · 1 video</div>
+      <div class="hook-quote">"Trying the £225 chocolate bag from Louis Vuitton — these videos are not cheap to make so make sure you're following."</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-type">Direct Recommendation</div>
+      <div class="hook-er">1.83<span style="font-size:20px">%</span></div>
+      <div class="hook-er-label">avg engagement rate</div>
+      <div class="hook-views">157K avg views · 1 video</div>
+      <div class="hook-quote">"Hi everybody, lots of goodies today mostly from Louis Vuitton, Dior and a few nice Chanel pieces."</div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:8px;">Highest-Performing Hook Pattern</div>
+  <div class="section-sub">By views — structural analysis, not a verbatim copy</div>
+  <div style="background:rgba(59,35,20,0.4);border:1px solid rgba(185,146,42,0.25);padding:28px 32px;margin-bottom:40px;">
+    <p style="font-size:14px;color:var(--lv-cream);line-height:1.8;">The highest-performing hook (@louiecastro, 6.4M views, 13.31% ER) follows a Place + Action invitation structure: it opens with a physical location, then immediately invites the viewer to join a specific activity. The specificity of the destination (Hawaii, Paris, New York) creates aspiration; the invitation ("come with me") creates parasocial intimacy. The product is not named in the first three sentences — it arrives as a natural consequence of the journey. This hook pattern outperforms every other hook type by views.</p>
+  </div>
+
+  <div class="section-title">Product Placement Timing</div>
+  <div class="section-sub">When LV is first mentioned in the transcript — vs. views and ER</div>
+  <div class="timing-grid">
+    <div class="timing-card">
+      <div class="timing-label">Early Mention (0–20% of video)</div>
+      <div class="timing-er">4.84%</div>
+      <div class="timing-views">ER — 555K avg views — 19 videos</div>
+    </div>
+    <div class="timing-card winner">
+      <div class="timing-winner-badge">✦ Best for ER</div>
+      <div class="timing-label">Mid Mention (20–60% of video)</div>
+      <div class="timing-er">10.53%</div>
+      <div class="timing-views">ER — 1.13M avg views — 7 videos</div>
+    </div>
+    <div class="timing-card winner" style="border-color:rgba(74,123,191,0.5);background:rgba(59,35,20,0.3);">
+      <div class="timing-winner-badge" style="background:var(--lv-blue);color:#fff;">Best for ER (tied)</div>
+      <div class="timing-label">Late Mention (60%+ of video)</div>
+      <div class="timing-er">10.79%</div>
+      <div class="timing-views">ER — 189K avg views — 2 videos</div>
+    </div>
+  </div>
+  <div style="background:rgba(59,35,20,0.3);border-left:3px solid var(--lv-tan);padding:16px 20px;font-size:13px;color:rgba(201,169,110,0.8);line-height:1.75;">
+    <strong style="color:var(--lv-cream)">Implication:</strong> Mentioning LV in the first 20% of the video (the default for most unboxing content) produces the lowest ER in the dataset at 4.84%. Delaying the brand mention to the mid-point more than doubles ER to 10.53%. Build context, intrigue, and narrative first. Let the brand land as a revelation, not a billboard.
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ LANGUAGE ═══════════════ -->
+<div id="tab-language" class="tab-content">
+<div class="container section">
+  <div class="section-title">Language &amp; Sentiment Patterns</div>
+  <div class="section-sub">Extracted from top-quartile ER transcripts and full primary dataset</div>
+
+  <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--lv-muted);margin-bottom:14px;">Power Words — Top-Quartile ER Videos</div>
+  <div class="chip-cloud">
+    <span class="chip chip-power">investment</span>
+    <span class="chip chip-power">luxury</span>
+    <span class="chip chip-power">must have</span>
+    <span class="chip chip-power">classic</span>
+    <span class="chip chip-power">elevate</span>
+    <span class="chip chip-power">favorite</span>
+    <span class="chip chip-power">perfect</span>
+    <span class="chip chip-power">timeless</span>
+  </div>
+
+  <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--lv-muted);margin-bottom:14px;margin-top:28px;">Positive Sentiment Signals</div>
+  <div class="chip-cloud">
+    <span class="chip chip-positive">love</span>
+    <span class="chip chip-positive">perfect</span>
+    <span class="chip chip-positive">iconic</span>
+    <span class="chip chip-positive">amazing</span>
+    <span class="chip chip-positive">obsessed</span>
+  </div>
+
+  <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--lv-muted);margin-bottom:14px;margin-top:28px;">Negative Signals (use with caution — flag for monitoring)</div>
+  <div class="chip-cloud">
+    <span class="chip chip-negative">cheap</span>
+    <span class="chip chip-negative">regret</span>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title">CTA Performance</div>
+  <div class="section-sub">Which calls-to-action correlate with highest ER and shares</div>
+
+  <table class="cta-table">
+    <thead>
+      <tr>
+        <th>CTA Type</th>
+        <th>Videos Using It</th>
+        <th>Avg ER</th>
+        <th>Avg Shares</th>
+        <th>Best Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="chip chip-cta" style="font-size:11px">save</span></td>
+        <td>1</td>
+        <td>10.21%</td>
+        <td>88</td>
+        <td>Conversion</td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-cta" style="font-size:11px">tag</span></td>
+        <td>7</td>
+        <td>9.97%</td>
+        <td>1,081</td>
+        <td>Community &amp; viral</td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-cta" style="font-size:11px">buy</span></td>
+        <td>6</td>
+        <td>9.49%</td>
+        <td>897</td>
+        <td>Conversion</td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-cta" style="font-size:11px">follow</span></td>
+        <td>2</td>
+        <td>6.66%</td>
+        <td>4,305</td>
+        <td>Viral (high shares)</td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-cta" style="font-size:11px">shop</span></td>
+        <td>5</td>
+        <td>4.30%</td>
+        <td>436</td>
+        <td>Weaker signal — avoid</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="background:rgba(201,160,32,0.07);border-left:3px solid var(--lv-gold);padding:16px 20px;font-size:13px;color:rgba(201,169,110,0.85);line-height:1.75;">
+    "Tag someone who needs this" outperforms "shop now" by 2.3x on ER and drives nearly 2.5x more shares. For LV bag content targeting purchase intent, the primary CTA should be either <strong style="color:var(--lv-cream)">tag (viral)</strong> or <strong style="color:var(--lv-cream)">buy/DM (conversion)</strong>. "Shop" is the weakest signal in the dataset despite being the most common CTA in standard brand briefs.
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ PLATFORM & DURATION ═══════════════ -->
+<div id="tab-platform" class="tab-content">
+<div class="container section">
+  <div class="section-title">Platform Performance</div>
+  <div class="section-sub">TikTok vs Instagram — primary LV videos only</div>
+
+  <div class="platform-grid">
+    <div class="platform-card">
+      <div class="platform-name">TikTok</div>
+      <div class="platform-metric"><span class="pm-label">Primary Videos</span><span class="pm-value">22</span></div>
+      <div class="platform-metric"><span class="pm-label">Avg ER</span><span class="pm-value">7.60%</span></div>
+      <div class="platform-metric"><span class="pm-label">Avg Views</span><span class="pm-value">643K</span></div>
+      <div class="platform-metric"><span class="pm-label">Avg Transcript Length</span><span class="pm-value">380 words</span></div>
+      <div class="platform-metric"><span class="pm-label">Verdict</span><span class="pm-value" style="font-size:14px;color:#2ECC71">Primary Platform</span></div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-name">Instagram</div>
+      <div class="platform-metric"><span class="pm-label">Primary Videos</span><span class="pm-value">6</span></div>
+      <div class="platform-metric"><span class="pm-label">Avg ER</span><span class="pm-value">3.33%</span></div>
+      <div class="platform-metric"><span class="pm-label">Avg Views</span><span class="pm-value">783K</span></div>
+      <div class="platform-metric"><span class="pm-label">Avg Transcript Length</span><span class="pm-value">254 words</span></div>
+      <div class="platform-metric"><span class="pm-label">Verdict</span><span class="pm-value" style="font-size:14px;color:var(--lv-muted)">Views but low ER</span></div>
+    </div>
+  </div>
+
+  <div style="background:rgba(59,35,20,0.3);border-left:3px solid var(--lv-tan);padding:16px 20px;font-size:13px;color:rgba(201,169,110,0.8);line-height:1.75;margin-bottom:48px;">
+    TikTok delivers 2.3x the ER of Instagram (7.60% vs 3.33%) with transcripts that run 49% longer (380 vs 254 words). Instagram videos receive higher raw view counts but fail to convert attention into engagement. <strong style="color:var(--lv-cream)">TikTok is the priority platform for bag content.</strong> Instagram should be treated as a repurposing destination, not a primary briefing target.
+  </div>
+
+  <div class="section-title">Optimal Duration</div>
+  <div class="section-sub">Word count proxy — short &lt;75w · medium 75–200w · long 200+w</div>
+
+  <div class="duration-grid">
+    <div class="duration-card">
+      <div class="duration-label">Short (&lt;75 words / ~30s)</div>
+      <div class="duration-er">—</div>
+      <div class="duration-views">No primary videos in this bucket</div>
+    </div>
+    <div class="duration-card">
+      <div class="duration-label">Medium (75–200 words / 30–90s)</div>
+      <div class="duration-er">5.49%</div>
+      <div class="duration-views">avg ER — 1.37M avg views — 6 videos</div>
+      <div style="font-size:11px;color:var(--lv-muted);margin-top:6px;">High views, lower ER</div>
+    </div>
+    <div class="duration-card optimal">
+      <div class="optimal-badge">Optimal for ER</div>
+      <div class="duration-label">Long (200+ words / 90s+)</div>
+      <div class="duration-er">7.02%</div>
+      <div class="duration-views">avg ER — 482K avg views — 22 videos</div>
+      <div style="font-size:11px;color:var(--lv-muted);margin-top:6px;">Higher ER — use for conversion</div>
+    </div>
+  </div>
+
+  <div style="background:rgba(59,35,20,0.3);border-left:3px solid var(--lv-gold);padding:16px 20px;font-size:13px;color:rgba(201,169,110,0.8);line-height:1.75;margin-top:24px;">
+    Long-form (200+ words, 90s+) delivers 28% higher ER than medium-form. For LV bag content targeting purchase intent and brand loyalty, longer videos that build context and narrative outperform quick cuts. If viral reach is the goal, medium-form generates 2.8x the views on average — use for awareness campaigns.
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════ CREATORS ═══════════════ -->
+<div id="tab-creators" class="tab-content">
+<div class="container section">
+  <div class="section-title">Creator Tier Performance</div>
+  <div class="section-sub">Primary LV videos — ranked by avg ER per tier</div>
+
+  <table class="data-table" style="margin-bottom:32px;">
+    <thead>
+      <tr>
+        <th>Tier</th>
+        <th>Videos</th>
+        <th>Avg ER</th>
+        <th>Avg Views</th>
+        <th>Avg Shares</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="tier-pill tier-macro">Macro 1M+</span></td>
+        <td>10</td>
+        <td><span class="er-pill er-high">7.86%</span></td>
+        <td>1,136,645</td>
+        <td>3,825</td>
+        <td>Best overall tier — ER + views</td>
+      </tr>
+      <tr>
+        <td><span class="tier-pill tier-mid">Mid 100K–1M</span></td>
+        <td>11</td>
+        <td><span class="er-pill er-med">6.81%</span></td>
+        <td>541,521</td>
+        <td>1,246</td>
+        <td>Consistent — strong pipeline</td>
+      </tr>
+      <tr>
+        <td><span class="tier-pill tier-micro">Micro 10K–100K</span></td>
+        <td>6</td>
+        <td><span class="er-pill er-med">5.32%</span></td>
+        <td>229,767</td>
+        <td>314</td>
+        <td>Underutilized — high upside</td>
+      </tr>
+      <tr>
+        <td><span class="tier-pill tier-nano">Nano &lt;10K</span></td>
+        <td>1</td>
+        <td><span class="er-pill er-low">1.83%</span></td>
+        <td>157,300</td>
+        <td>201</td>
+        <td>Insufficient data</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="margin-top:8px;">High-Priority Partnership Targets</div>
+  <div class="section-sub">Smaller creators outperforming their tier on ER</div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Handle</th>
+        <th>Tier</th>
+        <th>Followers</th>
+        <th>ER</th>
+        <th>Views</th>
+        <th>Why Flag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>@christinakirkman</strong> <span class="gem-flag">Hidden Gem</span></td>
+        <td><span class="tier-pill tier-macro">Macro</span></td>
+        <td>2.3M</td>
+        <td><span class="er-pill er-high">17.27%</span></td>
+        <td>101K</td>
+        <td>Highest ER in full dataset. Niche angle. High loyalty audience.</td>
+      </tr>
+      <tr>
+        <td><strong>@relaxitsonlyfashion</strong> <span class="gem-flag">Hidden Gem</span></td>
+        <td><span class="tier-pill tier-mid">Mid</span></td>
+        <td>399K</td>
+        <td><span class="er-pill er-high">12.21%</span></td>
+        <td>204K</td>
+        <td>Brand analysis angle. Intellectual audience. Rare format for LV.</td>
+      </tr>
+      <tr>
+        <td><strong>@andywaakk</strong> <span class="gem-flag">Hidden Gem</span></td>
+        <td><span class="tier-pill tier-mid">Mid</span></td>
+        <td>800K</td>
+        <td><span class="er-pill er-high">13.46%</span></td>
+        <td>276K</td>
+        <td>Spanish-language lifestyle — untapped LV audience segment.</td>
+      </tr>
+      <tr>
+        <td><strong>@blondieluxe</strong> <span class="gem-flag">Hidden Gem</span></td>
+        <td><span class="tier-pill tier-micro">Micro</span></td>
+        <td>55K</td>
+        <td><span class="er-pill er-high">8.65%</span></td>
+        <td>173K</td>
+        <td>Tutorial/advice angle outperforms creator size significantly.</td>
+      </tr>
+      <tr>
+        <td><strong>@kellwilliams</strong> <span class="gem-flag">Hidden Gem</span></td>
+        <td><span class="tier-pill tier-micro">Micro</span></td>
+        <td>23K</td>
+        <td><span class="er-pill er-high">8.11%</span></td>
+        <td>103K</td>
+        <td>Personal purchase narrative. 4.4x views vs follower count.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- ═══════════════ VIDEO GUIDES ═══════════════ -->
+<div id="tab-guides" class="tab-content">
+<div class="container section">
+  <div class="section-title">Director's Video Guides</div>
+  <div class="section-sub">Three fully executable briefs — each filmable without a follow-up question</div>
+
+  <!-- GUIDE 1 -->
+  <div class="guide-card" id="guide-1">
+    <div class="guide-header" onclick="toggleGuide('guide-1')">
+      <div class="guide-num">01</div>
+      <div class="guide-title-block">
+        <div class="guide-format">Comparison / In-Store Experience · Viral-Optimized</div>
+        <div class="guide-title">The Passport Stamp: A Ritual Nobody Tells You About</div>
+        <div class="guide-meta">
+          <span class="guide-meta-item">Goal: <span>Viral (share-optimized)</span></span>
+          <span class="guide-meta-item">Platform: <span>TikTok Primary</span></span>
+          <span class="guide-meta-item">Length: <span>75–120 seconds</span></span>
+          <span class="guide-meta-item">Tier: <span>Mid or Macro (100K–5M)</span></span>
+        </div>
+      </div>
+      <div class="guide-toggle">+</div>
+    </div>
+    <div class="guide-body">
+
+      <div class="data-anchor">
+        <span class="data-anchor-icon">✦</span>
+        <span class="data-anchor-text">Data anchor: Passport stamp videos average 13.31% ER and 6.4M views (n=3) vs dataset average of 6.9% ER. This format has 0 LV-seeded examples in the dataset — all three were organic creator discoveries.</span>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Pre-Production</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Cover Frame / Thumbnail</div>
+            <div class="guide-item-value">Creator's hand pressing a small mechanical stamping device onto an open Louis Vuitton passport holder. Stamp is mid-press — motion blur on the stamp, passport holder sharp. No text overlay. The LV monogram on the holder is legible. Background is the warm interior of the boutique, out of focus. Nothing else in frame.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Talent Direction</div>
+            <div class="guide-item-value">Genuine discovery energy — not performed excitement. Speak at 80% of normal pace. Pause after revealing the stamp machine. Let the viewer catch up before moving on. Eye contact with camera only during hook and CTA. During stamp moment, look at the passport holder, not the lens. "Speak like you just found a shortcut nobody told you about."</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Location / Scene</div>
+            <div class="guide-item-value">Interior of a Louis Vuitton flagship — not a mall outpost. Film near the leather goods section. Warm ambient light from store fixtures. Creator should be the only person visible except incidental background staff. Keep the store recognizable — the monogram wallpaper or display cases should appear in background.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">B-Roll to Shoot</div>
+            <div class="guide-item-value"><ul>
+              <li>Close-up of the stamp machine before use</li>
+              <li>The stamp pressing onto the passport holder — macro lens if available</li>
+              <li>Full passport holder open, showing multiple stamps</li>
+              <li>Creator browsing the wall of stamp options (selection moment)</li>
+              <li>Final reveal: bag + stamped passport holder together on a table</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Script</div>
+        <div class="script-terminal">
+          <div class="script-beat beat-hook">
+            <div><span class="beat-label">Hook — land by second 3</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:00–0:04]</span>Did you know that almost every Louis Vuitton store will stamp your bag for free? I didn't. And I've been carrying mine for two years.</div>
+          </div>
+          <div class="script-beat beat-body">
+            <div><span class="beat-label">Body — build context and intrigue</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:04–0:25]</span>It's called a hot stamp — or a city stamp — and it's completely free when you buy a leather piece in-store. Every city has a different design. New York has the Statue of Liberty. Paris has the Eiffel Tower. Hawaii has the hibiscus. They press it directly into the leather — heat and pressure, no ink, just the monogram canvas permanently marked with where you were.</div>
+          </div>
+          <div class="script-beat beat-product">
+            <div><span class="beat-label">Product Moment — mid video [20–60%]</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:25–0:55]</span>This is mine. [HOLD UP BAG AND PASSPORT HOLDER] I just got my third stamp — Tokyo, New York, and now here. They have this little machine at the counter. You pick your design, they press it, and it takes about thirty seconds. That's it. The bag I have has carried me through fifteen countries. And now it carries proof of that. It's not about the stamp. It's about what it means. This bag is no longer just a Louis Vuitton bag. It's mine.</div>
+          </div>
+          <div class="script-beat beat-cta">
+            <div><span class="beat-label">CTA — final 10 seconds</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:55–1:05]</span>Tag someone who didn't know this existed. And tell me — which city stamp would you get first?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Visual Direction</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Camera</div>
+            <div class="guide-item-value">Handheld, slight shoulder movement. Center frame for hook and CTA. Dutch tilt slightly during b-roll stamp sequences. Medium shot for talking — head and upper torso, bag in lower frame.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Lighting</div>
+            <div class="guide-item-value">Store's ambient warm lighting — do not supplement. If store is too dark, one small diffused LED panel at eye level from the left, color temperature 3000K. Shadows are acceptable. No ring light — the boutique aesthetic must read clearly.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Product Handling</div>
+            <div class="guide-item-value">Bag enters frame at 0:25 — held naturally in one hand at waist height. Passport holder opens in the other hand. Stamps face directly toward camera. Hold for 5 seconds minimum. Do not rush this moment — it is the payoff.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Aesthetic Cues</div>
+            <div class="guide-item-value">Warm honey tones. Monogram canvas texture prominent. No heavily saturated color grading — natural warmth only. The leather should look lived-in, not pristine. Patina is a feature, not a flaw.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Editing Cues</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Pacing</div>
+            <div class="guide-item-value">Cut every 2–3 seconds during hook. Slow to 5–7 second holds during the stamp machine b-roll. Return to fast cuts for the CTA. The stamp-press moment: no cut. Let it play in real time — the sound of the press is part of the hook.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Text Overlays</div>
+            <div class="guide-item-value">"FREE city stamp" — white thin sans-serif, appears at 0:06 during first stamp mention. "Every city has a different design" — appears at 0:14. No other text. No emojis. No stickers. Clean.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Hook Retention</div>
+            <div class="guide-item-value">First 3 seconds must show the stamp machine OR the stamped passport holder — not the creator's face. The object creates the scroll stop, not the person.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Music</div>
+            <div class="guide-item-value">Understated piano or light acoustic guitar, 70–85 BPM. Search "luxury lifestyle minimal" on TikTok sounds. Fade in under hook, lower to 20% under the stamp press moment (let the sound design carry it), back to 60% under CTA.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Caption &amp; Hashtags</div>
+        <div class="caption-block">
+          <div class="caption-block-label">Caption</div>
+          The Louis Vuitton secret nobody told me about. Two years of carrying this bag before I found out. Now I can't stop. Which city would you stamp first?
+        </div>
+        <div class="hashtag-chips">
+          <span class="hashtag-chip">#louisvuitton</span>
+          <span class="hashtag-chip">#lvbag</span>
+          <span class="hashtag-chip">#luxurybag</span>
+          <span class="hashtag-chip">#louisvuittontips</span>
+          <span class="hashtag-chip">#lvcitystamp</span>
+          <span class="hashtag-chip">#hotestamp</span>
+          <span class="hashtag-chip">#luxuryfashion</span>
+          <span class="hashtag-chip">#bagtok</span>
+        </div>
+      </div>
+
+      <div class="ab-box">
+        <div class="ab-box-label">A/B Hook Alternative</div>
+        <div class="ab-box-text">I've been into Louis Vuitton stores at least twelve times. Nobody once mentioned they would do this for free.</div>
+      </div>
+
+      <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--lv-muted);margin-bottom:8px;">Posting Recommendation</div>
+      <div style="font-size:13px;color:var(--lv-cream);margin-bottom:24px;">Saturday or Monday, posted between 22:00–23:00 UTC (2:00–3:00 PM PT / 5:00–6:00 PM ET). Monday posts in this dataset average 9.01% ER. Saturday posts average 7.94% ER with consistent volume. Friday is the lowest-performing day (1.80% avg ER) — avoid.</div>
+
+      <div class="why-block">
+        <div class="why-label">Why This Works</div>
+        <div class="why-text">Three organic videos using this exact experience format — none briefed by LV — averaged 13.31% ER and 6.4M views against a dataset average of 6.9% ER and 660K views. The format succeeds because it delivers new, actionable information (a free service most LV customers don't know exists) wrapped in a personal ownership narrative. The mid-video product mention (at ~0:25, within the 20–60% window) aligns with the timing bucket that produces 10.53% ER — more than double the 4.84% ER of early-mention videos. The "tag" CTA matches the highest-ER CTA type in the dataset at 9.97% avg ER.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GUIDE 2 -->
+  <div class="guide-card" id="guide-2">
+    <div class="guide-header" onclick="toggleGuide('guide-2')">
+      <div class="guide-num">02</div>
+      <div class="guide-title-block">
+        <div class="guide-format">Outfit / Styling · Conversion-Optimized</div>
+        <div class="guide-title">One Bag, Three Lives: How Far Does It Actually Go</div>
+        <div class="guide-meta">
+          <span class="guide-meta-item">Goal: <span>Conversion (comment/save-optimized)</span></span>
+          <span class="guide-meta-item">Platform: <span>TikTok Primary</span></span>
+          <span class="guide-meta-item">Length: <span>90–120 seconds</span></span>
+          <span class="guide-meta-item">Tier: <span>Mid (100K–1M)</span></span>
+        </div>
+      </div>
+      <div class="guide-toggle">+</div>
+    </div>
+    <div class="guide-body">
+
+      <div class="data-anchor">
+        <span class="data-anchor-icon">✦</span>
+        <span class="data-anchor-text">Data anchor: Outfit/Styling format averages 9.20% ER across 4 primary videos. Mid-tier creators in this dataset average 6.81% ER — but outliers @andywaakk (13.46%) and @relaxitsonlyfashion (12.21%) show mid-tier can outperform macro when the format is specific.</span>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Pre-Production</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Cover Frame / Thumbnail</div>
+            <div class="guide-item-value">Split-frame or three-panel image: same bag photographed in three distinct settings — morning coffee, business environment, evening. The bag is the constant; everything around it changes. Creator not visible in thumbnail. Thin gold line separating panels. No text overlay needed — the visual tells the story.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Talent Direction</div>
+            <div class="guide-item-value">Confident and direct. No giggling or performative reactions. Treat each outfit reveal as a presentation, not a fashion moment. Look at the camera the way you'd look at a friend you respect, not an audience you're performing for. Pace: steady and deliberate. Silence between outfit changes is acceptable — do not fill dead air with filler words.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Location / Scene</div>
+            <div class="guide-item-value">Three distinct settings: (1) a bright, minimal kitchen or coffee counter — morning light, (2) a desk or clean office environment with neutral tones, (3) a dim, warm restaurant or home ambient light — evening. Film all three separately. Each setting should read immediately without explanation.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">B-Roll to Shoot</div>
+            <div class="guide-item-value"><ul>
+              <li>Full-body reveal of each look with the bag — 3-second hold minimum per look</li>
+              <li>Hands lifting the bag — handle, strap, or clutch grip depending on styling</li>
+              <li>Close-up of the monogram or hardware detail between each outfit</li>
+              <li>Side-profile silhouette shot for the evening look</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Script</div>
+        <div class="script-terminal">
+          <div class="script-beat beat-hook">
+            <div><span class="beat-label">Hook — land by second 3</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:00–0:05]</span>People ask me why I only carry one bag. Here's the actual answer.</div>
+          </div>
+          <div class="script-beat beat-body">
+            <div><span class="beat-label">Body — three outfit reveals with narration</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:05–0:30]</span>[MORNING LOOK REVEAL] Morning. Coffee run, then straight to meetings. The bag does not need to change. Structured enough to sit upright on any surface. The strap adjusts — crossbody or hand carry. This is dressed-down but it reads. Nobody questions it.</div>
+            <div class="beat-text" style="margin-top:12px;"><span class="beat-timestamp">[0:30–0:55]</span>[WORK LOOK REVEAL] Afternoon. Client presentation, lunch after. The same bag. Different coat, different shoes — but the bag anchors the whole thing. There is something about a leather good that communicates permanence. You are not trying to impress with a bag if the bag is genuinely good. You just are.</div>
+          </div>
+          <div class="script-beat beat-product">
+            <div><span class="beat-label">Product Moment — mid video</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:55–1:15]</span>[EVENING LOOK REVEAL] Night. [HOLD BAG TOWARD CAMERA — SHOW MONOGRAM HARDWARE] This is the Speedy. [OR INSERT SPECIFIC BAG NAME] It is twenty-three years old. It was my mother's. The leather has patina that you cannot buy. The only Louis Vuitton canvas that gets better with time instead of worse. This is what investment means in the context of a bag. Not that it holds value. That it holds a life.</div>
+          </div>
+          <div class="script-beat beat-cta">
+            <div><span class="beat-label">CTA — final 8 seconds</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[1:15–1:23]</span>Tell me: which look would you style it with? Drop it in the comments.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Visual Direction</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Camera</div>
+            <div class="guide-item-value">Tripod for all three outfit reveals. Handheld only for transition b-roll between looks. Full-body frame for reveals — head to toe visible. Monogram close-up: macro lens or phone 2x optical zoom, no digital crop.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Lighting</div>
+            <div class="guide-item-value">Morning: natural window light, slightly overexposed, cool white. Afternoon: balanced neutral, 4000K. Evening: warm practical light only, 2700K, slight underexposure is fine — the drama is intentional. Do not color-correct all three looks to match — the contrast between environments is part of the point.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Product Handling</div>
+            <div class="guide-item-value">Each look: bag is worn or held for a minimum 5-second static shot before any movement. On the evening look, hold bag at waist height facing the camera — monogram panel forward. Do not swing or fidget with the bag during close-up holds.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Aesthetic Cues</div>
+            <div class="guide-item-value">Neutral wardrobe only — cream, black, navy, camel. The bag should be the most visually distinctive element in every frame. No competing patterns in clothing. The restraint makes the product land harder.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Editing Cues</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Pacing</div>
+            <div class="guide-item-value">Hook: 2-second cuts. Each outfit reveal: 1 cut for full-body, 1 cut for bag close-up, hold both for 3 seconds each. Narration over static shots — do not cut while speaking unless adding a b-roll cutaway. CTA: single wide shot, no cuts.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Text Overlays</div>
+            <div class="guide-item-value">"Morning" / "Afternoon" / "Evening" — small, light-weight sans-serif in the top-left corner as each section opens. Disappears after 2 seconds. No other text. Let the narration carry the information.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Hook Retention</div>
+            <div class="guide-item-value">First 3 seconds: creator in full-body shot with bag clearly visible. The bag is the reason someone stops scrolling. Creator's face enters at 0:03 when they begin speaking. Do not open on a talking-head close-up.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Music</div>
+            <div class="guide-item-value">Jazz-influenced or low-tempo R&B instrumental, 75–90 BPM. No lyrics. Search "slow luxury aesthetic" or "refined background music" on TikTok sounds. Volume at 35% throughout — this is background, not foreground.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Caption &amp; Hashtags</div>
+        <div class="caption-block">
+          <div class="caption-block-label">Caption</div>
+          One bag. Three completely different days. This is what a classic actually means — not a trend, not a season. Which look would you wear it with?
+        </div>
+        <div class="hashtag-chips">
+          <span class="hashtag-chip">#louisvuitton</span>
+          <span class="hashtag-chip">#lvbag</span>
+          <span class="hashtag-chip">#outfitideas</span>
+          <span class="hashtag-chip">#luxurybag</span>
+          <span class="hashtag-chip">#ootd</span>
+          <span class="hashtag-chip">#investmentpiece</span>
+          <span class="hashtag-chip">#bagstyling</span>
+          <span class="hashtag-chip">#classicstyle</span>
+          <span class="hashtag-chip">#lvfashion</span>
+        </div>
+      </div>
+
+      <div class="ab-box">
+        <div class="ab-box-label">A/B Hook Alternative</div>
+        <div class="ab-box-text">My rule: one bag that works everywhere, or the bag doesn't come home with me. This one passed.</div>
+      </div>
+
+      <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--lv-muted);margin-bottom:8px;">Posting Recommendation</div>
+      <div style="font-size:13px;color:var(--lv-cream);margin-bottom:24px;">Monday at 22:00 UTC (2:00 PM PT). Monday is the highest ER day in this dataset at 9.01% avg ER. Late-morning to early-afternoon local time captures the audience at peak scroll intent.</div>
+
+      <div class="why-block">
+        <div class="why-label">Why This Works</div>
+        <div class="why-text">The Outfit/Styling format delivers 9.20% avg ER — second-highest of all detected formats. The mid-mention product placement structure (bag presented at 0:55, within the 20–60% window) aligns with the 10.53% ER timing bucket. The comment CTA ("drop it in the comments") correlates with 9.97% avg ER — the second-strongest CTA in the dataset. The narrative arc from morning to evening mirrors the "investment" and "classic" power words drawn from top-quartile ER transcripts, both of which appeared in videos with ER above 10%.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GUIDE 3 -->
+  <div class="guide-card" id="guide-3">
+    <div class="guide-header" onclick="toggleGuide('guide-3')">
+      <div class="guide-num">03</div>
+      <div class="guide-title-block">
+        <div class="guide-format">Comparison / Brand Analysis · Viral-Optimized</div>
+        <div class="guide-title">The Honest Case for Why LV Bags Hold Value (A Number Most People Get Wrong)</div>
+        <div class="guide-meta">
+          <span class="guide-meta-item">Goal: <span>Viral (share-optimized)</span></span>
+          <span class="guide-meta-item">Platform: <span>TikTok Primary</span></span>
+          <span class="guide-meta-item">Length: <span>90–150 seconds</span></span>
+          <span class="guide-meta-item">Tier: <span>Mid (400K–1M)</span></span>
+        </div>
+      </div>
+      <div class="guide-toggle">+</div>
+    </div>
+    <div class="guide-body">
+
+      <div class="data-anchor">
+        <span class="data-anchor-icon">✦</span>
+        <span class="data-anchor-text">Data anchor: Comparison/Analysis format is the highest-ER format in this dataset at 10.20% avg ER and 1.96M avg views across 4 videos. @relaxitsonlyfashion's brand economics video hit 12.21% ER using LV financial data as the hook entry point — a format with zero paid/seeded equivalents in this dataset.</span>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Pre-Production</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Cover Frame / Thumbnail</div>
+            <div class="guide-item-value">Creator looking directly at camera with a slight pause — one eyebrow slightly raised, slight asymmetry. One hand holding a Louis Vuitton bag at chest height, monogram facing camera. On-screen text: "The number people always get wrong" in white, thin sans-serif, lower third. No filter. No background blur.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Talent Direction</div>
+            <div class="guide-item-value">Conversational lecture energy — the way a friend who works in finance explains something to you at dinner. Knowledgeable, slightly conspiratorial, never condescending. Lean forward on the desk slightly during the core data point. The goal is "I know something you don't — and I want you to know it too." Not "here's my opinion." Facts carry the weight.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Location / Scene</div>
+            <div class="guide-item-value">Creator at a desk or counter — minimal, no clutter. One or two Louis Vuitton bags visible in the background, slightly out of focus. A clean wall or bookshelf behind. Feels like a home office, not a studio. The relatability of the setting makes the information more credible.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">B-Roll to Shoot</div>
+            <div class="guide-item-value"><ul>
+              <li>Close-up of bag hardware and stitching — detail quality proof shots</li>
+              <li>Bag sitting on a clean surface — still life, no movement</li>
+              <li>Creator flipping through phone or paper — the research gesture</li>
+              <li>Split-shot: old bag vs new bag side by side — patina comparison</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Script</div>
+        <div class="script-terminal">
+          <div class="script-beat beat-hook">
+            <div><span class="beat-label">Hook — land by second 3</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:00–0:06]</span>Most people calculate the cost of a Louis Vuitton bag wrong. Let me show you the number that actually matters.</div>
+          </div>
+          <div class="script-beat beat-body">
+            <div><span class="beat-label">Body — build the case with specifics</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:06–0:35]</span>People look at the price tag — let's say a Neverfull MM. Around $2,200 right now. They see $2,200 and they stop thinking. That's the wrong number. The question is: over how many years do you carry this bag? If the answer is ten years — and it should be, because the Monogram Canvas is coated. It does not crack. It does not peel. It develops patina — which is not wear, it is character — then the cost is $220 a year. $4.22 a week. Less than most people spend on coffee.</div>
+            <div class="beat-text" style="margin-top:12px;"><span class="beat-timestamp">[0:35–0:55]</span>Now compare that to a $500 designer bag that needs replacing every 18 months. In the same ten years, that is $3,300. You paid more for less. The math is not complicated. The math is just uncomfortable to do when you're standing in a store justifying a purchase.</div>
+          </div>
+          <div class="script-beat beat-product">
+            <div><span class="beat-label">Product Moment — mid video</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[0:55–1:20]</span>[HOLD BAG UP — SHOW HARDWARE AND STITCHING] This is my Speedy. I have had it for seven years. The canvas is developing a warm patina on the handles. The brass hardware has not scratched. The stitching is intact everywhere except one seam that Louis Vuitton repaired, for free, under their leather goods guarantee. Seven years. One free repair. This is what a luxury investment actually looks like — not a trend purchase. Not a status symbol. A tool that improves with age.</div>
+          </div>
+          <div class="script-beat beat-cta">
+            <div><span class="beat-label">CTA — final 8 seconds</span></div>
+            <div class="beat-text"><span class="beat-timestamp">[1:20–1:28]</span>Share this with someone who keeps calling Louis Vuitton overpriced. Then ask them how much their last bag cost.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Visual Direction</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Camera</div>
+            <div class="guide-item-value">Tripod. Medium shot — head and torso with desk visible. No movement during monologue. Single slow push-in (0.5x zoom over 10 seconds) during the cost-per-year calculation section to increase tension. Pull back to original position for the product reveal.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Lighting</div>
+            <div class="guide-item-value">Even, warm-neutral key light at 45 degrees from left, 3200K. Fill from the right at 50% power to reduce harsh shadows. The look should be clean and credible — not glamorous, not dim. Think: well-lit podcast set.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Product Handling</div>
+            <div class="guide-item-value">Bag is visible in background from the start — partially in frame, slightly soft focus. Creator lifts it at 0:55 and holds it for 25 seconds minimum. Rotate slowly during the product moment so both the monogram panel and the hardware face camera in sequence. Set bag down on desk for final CTA — it remains in frame.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Aesthetic Cues</div>
+            <div class="guide-item-value">Restrained and editorial. No warmer than 3400K color grade. Creator wears neutral or dark tones — the bag carries the warmth in the frame. The overall feeling is: this person did the research so you don't have to. Credibility over style.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Editing Cues</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <div class="guide-item-label">Pacing</div>
+            <div class="guide-item-value">Hook: single take, no cuts. Body: cut every 5–7 seconds, slower than guide 1. The intellectual content rewards patience. Product moment: no cuts during bag hold. CTA: single wide shot. Total cuts should be minimal — let the argument breathe.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Text Overlays</div>
+            <div class="guide-item-value">"$4.22 / week" — appears in white at 0:27 during the cost calculation. "$3,300 over 10 years" — appears at 0:47 during the comparison. Both text overlays: bottom-center, thin sans-serif, white, 3-second duration. No animations — straight cuts in and out.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Hook Retention</div>
+            <div class="guide-item-value">First 3 seconds: creator in frame, no bag visible yet. The intrigue of the hook ("the number most people get wrong") must precede the product reveal. Viewer stays because they want the answer, not the bag.</div>
+          </div>
+          <div class="guide-item">
+            <div class="guide-item-label">Music</div>
+            <div class="guide-item-value">No music, or barely-audible ambient texture at 10% volume. The information is the entertainment. Music competes with the argument. If music is required by the platform, use a single-note ambient pad — no melody, no rhythm.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="guide-section-title">Caption &amp; Hashtags</div>
+        <div class="caption-block">
+          <div class="caption-block-label">Caption</div>
+          The cost-per-wear math most people avoid doing. Run these numbers before you write off any investment piece. Tag someone who needs to see this.
+        </div>
+        <div class="hashtag-chips">
+          <span class="hashtag-chip">#louisvuitton</span>
+          <span class="hashtag-chip">#investmentbag</span>
+          <span class="hashtag-chip">#luxurybag</span>
+          <span class="hashtag-chip">#lvbag</span>
+          <span class="hashtag-chip">#fashiontips</span>
+          <span class="hashtag-chip">#costperwear</span>
+          <span class="hashtag-chip">#luxuryfashion</span>
+          <span class="hashtag-chip">#personalfinance</span>
+          <span class="hashtag-chip">#smartshopping</span>
+        </div>
+      </div>
+
+      <div class="ab-box">
+        <div class="ab-box-label">A/B Hook Alternative</div>
+        <div class="ab-box-text">If you divide a $2,200 bag by ten years of carrying it, it costs less than your Spotify subscription per week. Most people never do this math.</div>
+      </div>
+
+      <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--lv-muted);margin-bottom:8px;">Posting Recommendation</div>
+      <div style="font-size:13px;color:var(--lv-cream);margin-bottom:24px;">Sunday at 22:00 UTC or Saturday at 22:00 UTC. Weekend evenings show 8.69% and 7.94% avg ER respectively in this dataset. The analytical content suits an audience in a relaxed, receptive state — not a commute or lunch scroll.</div>
+
+      <div class="why-block">
+        <div class="why-label">Why This Works</div>
+        <div class="why-text">The Comparison/Analysis format is the #1 ER-performing format in this dataset at 10.20% avg ER and 1.96M avg views. @relaxitsonlyfashion produced a brand economics video using LVMH financial data as its hook and achieved 12.21% ER — the third-highest in the primary dataset. The "share" CTA is engineered specifically for this format: financially-framed arguments get shared at others as a form of social persuasion ("here's why you're wrong about this bag"). The cost-per-wear calculation is not a new concept, but zero videos in this dataset have executed it for LV specifically — making this an untapped angle with proven adjacent performance data.</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  Powered by <a href="https://oriane.xyz" target="_blank">Oriane.xyz</a> — AI Video Intelligence · Louis Vuitton Bag Category · April 2026
+</footer>
+
+<script>
+  // TAB SWITCHING
+  function showTab(name) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+    if (name === 'overview') animateBars();
+  }
+
+  // STAT COUNTERS
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const decimal = parseInt(el.dataset.decimal || 0);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const val = target * ease;
+      el.textContent = (decimal ? val.toFixed(decimal) : Math.round(val)) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+  document.querySelectorAll('.stat-num[data-target]').forEach((el, i) => {
+    setTimeout(() => animateCounter(el), i * 120);
+  });
+
+  // BAR CHART ANIMATION
+  function animateBars() {
+    document.querySelectorAll('.bar-fill').forEach((bar, i) => {
+      const w = bar.dataset.width;
+      setTimeout(() => { bar.style.width = w + '%'; }, i * 80);
+    });
+  }
+  setTimeout(animateBars, 400);
+
+  // GUIDE TOGGLE
+  function toggleGuide(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

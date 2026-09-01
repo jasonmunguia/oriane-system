@@ -4,6 +4,8 @@
 
 An AI system built in April 2026 to make [Oriane](https://app.oriane.xyz/) intuitive from the first session. Oriane is an AI video intelligence platform with twelve search filters and a CSV export: powerful, but a new user doesn't know which filters to set or what to do with the data once they have it. This system collapses that learning curve into a guided workflow. Answer four questions in any AI chat, get your exact filter recipe, run the search, and turn the export into a branded, data-backed viral video playbook. Built to help Oriane close prospects and to help clients turn their video data into sales.
 
+Built by [Jason Munguia](https://github.com/jasonmunguia). Apache-2.0 — free to use, fork and build on, **with credit**.
+
 **Open the live pages:**
 
 | Page | What it is |
@@ -69,10 +71,12 @@ Anyone can ask an AI to "analyze this CSV." The work here is encoding domain kno
 
 ## Using it
 
+You need two things: an AI chat ([Claude](https://claude.ai), [ChatGPT](https://chatgpt.com), [Gemini](https://gemini.google.com), or [Copilot](https://copilot.microsoft.com)) and an Oriane account — [sign up free](https://app.oriane.xyz/signup). Nothing to install.
+
 1. Open [the system](https://jasonmunguia.github.io/oriane-system/) and copy Prompt 1 into any AI chat.
 2. Answer the four questions, then paste Prompt 2 for your filter recipe.
 3. Run the search at [app.oriane.xyz](https://app.oriane.xyz/), export the CSV with the transcript column enabled.
-4. Paste Prompt 3 in the same chat, attach the CSV, and save the returned HTML.
+4. Paste Prompt 3 in the same chat and attach the CSV. It returns raw HTML — reply "give me that as a downloadable .html file" and open what the AI sends back. To save it by hand instead: copy the output into a plain-text editor (Mac: TextEdit → Format → Make Plain Text; Windows: Notepad), save it as `playbook.html` with the file type set to "All Files" so it doesn't become `playbook.html.txt`, then double-click it. It should open in your browser as a styled report, not a wall of code.
 
 ---
 

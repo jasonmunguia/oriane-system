@@ -903,7 +903,7 @@ NEXT STEPS
           <div class="prompt-meta">
             <span class="prompt-step">Prompt 3 of 3</span>
             <div class="prompt-title">Director's Creative Brief</div>
-            <div class="prompt-desc">Paste in the same chat. Attach your Oriane CSV. Outputs raw HTML — copy it, save as .html, open in any browser.</div>
+            <div class="prompt-desc">Paste in the same chat. Attach your Oriane CSV. Outputs raw HTML — then reply "give me that as a downloadable .html file" and open what the AI sends back. (See Tips below for saving it by hand.)</div>
           </div>
           <button class="copy-btn" onclick="cp('ta_p3',this)">
             <svg class="copy-icon" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
@@ -1259,14 +1259,14 @@ Every script must be word-for-word filmable by a creator reading it cold. Every 
       <div class="tip"><strong>AI Vision: 2-3 words only</strong>Short object labels like "leggings" or "gym" — not descriptions. Long inputs return zero results.</div>
       <div class="tip"><strong>25 videos minimum</strong>Fewer than 25 results means your filters are too narrow. Loosen Spoken words or AI Vision first.</div>
       <div class="tip"><strong>Enable Audio Transcript</strong>When exporting from Oriane, check the Spoken words column. Prompt 3 uses it to build scripts.</div>
-      <div class="tip"><strong>Save the HTML</strong>Copy Prompt 3's output, save as .html, open in any browser.</div>
+      <div class="tip"><strong>Save the HTML</strong>Easiest way: after Prompt 3 runs, reply "give me that as a downloadable .html file" and open the file the AI gives you. To do it by hand, copy the output into a plain-text editor (Mac: TextEdit → Format → Make Plain Text; Windows: Notepad), save it as playbook.html with the file type set to "All Files" so it doesn't become playbook.html.txt, then double-click it.</div>
       <div class="tip"><strong>Not making videos?</strong>Use the Prompts Library in the sidebar. Each card is a different Oriane use case.</div>
     </div>
   </div>
 
   <div class="footer">
     <span class="footer-left">Powered by Oriane.xyz</span>
-    <span class="footer-right">AI Prompts Library — Video Intelligence Workflow</span>
+    <span class="footer-right">AI Prompts Library — Video Intelligence Workflow · Built by <a href="https://github.com/jasonmunguia" style="color:inherit;">Jason Munguia</a>, Apache-2.0</span>
   </div>
 </div>
 </div>
@@ -1312,6 +1312,10 @@ function copyModal() {
       btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M3 11V3a1 1 0 011-1h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Copy prompt';
       btn.className = 'modal-copy';
     }, 2200);
+  }).catch(() => {
+    const btn = document.getElementById('modal-copy-btn');
+    btn.textContent = 'Copy blocked — select the text above and press Cmd/Ctrl+C';
+    btn.className = 'modal-copy';
   });
 }
 
@@ -1322,6 +1326,9 @@ function cp(taId, btn) {
     btn.innerHTML = '<svg class="copy-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied!';
     btn.classList.add('success');
     setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('success'); }, 2200);
+  }).catch(() => {
+    btn.textContent = 'Copy blocked — select the text and press Cmd/Ctrl+C';
+    btn.classList.remove('success');
   });
 }
 
